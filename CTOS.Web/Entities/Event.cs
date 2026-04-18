@@ -16,6 +16,9 @@ namespace CTOS.Web.Entities {
 
         public string Priority { get; set; }
 
+        public string Description { get; set; }
+
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
 
         #region Navigational properties and relationships

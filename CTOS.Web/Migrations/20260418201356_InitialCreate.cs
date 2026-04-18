@@ -1,11 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace CTOS.Web.Migrations
 {
     /// <inheritdoc />
-    public partial class EventMigration : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -19,7 +20,9 @@ namespace CTOS.Web.Migrations
                     EventId = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false),
                     EventName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
                     Location = table.Column<string>(type: "nvarchar(512)", maxLength: 512, nullable: false),
-                    Priority = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false)
+                    Priority = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(1024)", maxLength: 1024, nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETUTCDATE()")
                 },
                 constraints: table =>
                 {

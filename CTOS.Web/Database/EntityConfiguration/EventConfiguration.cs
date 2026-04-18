@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace CTOS.Web.Database.EntityConfiguration {
-    public class EventConfig : IEntityTypeConfiguration<Event> {
+    public class EventConfiguration : IEntityTypeConfiguration<Event> {
         public void Configure(EntityTypeBuilder<Event> builder) {
 
             builder.Property(x => x.EventId)
@@ -26,6 +26,11 @@ namespace CTOS.Web.Database.EntityConfiguration {
             builder.Property(x => x.Priority)
                 .HasMaxLength(256);
 
+            builder.Property(x => x.Description)
+                .HasMaxLength(1024);
+
+            builder.Property(x => x.CreatedAt)
+                .HasDefaultValueSql("GETUTCDATE()"); // Set default value to current UTC date and time
 
 
             #region Relationships if present
