@@ -3,6 +3,8 @@
 // Entities folder is the location where the base classes exist (The same structure as database tables)
 
 
+using CTOS.Web.Entities;
+
 namespace CTOS.Web.Entities {
     public class Event {
 
@@ -21,15 +23,27 @@ namespace CTOS.Web.Entities {
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
 
-        #region Navigational properties and relationships
-        // If there are relationships between 2 or more entities
-
-        //Product Entity ex:
-        /*     
-            public int CompanyId { get; set; }
-            public Company Company { get; set; }
-        */
-        #endregion
-
     }
+    #region Navigational properties and relationships
+
+    //public int LocationId { get; set; } // fk
+    //public Location location { get; set; } // navigation
+
+    //    public class Location {
+
+    //        public int Id { get; set; }
+
+    //        public string address { get; set; }
+
+    //    }
+
+    #endregion
+
 }
+
+
+
+//var eve = new Event();
+
+//eve.location.address
+

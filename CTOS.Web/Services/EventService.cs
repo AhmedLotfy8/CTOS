@@ -32,7 +32,7 @@ namespace CTOS.Web.Services {
             return evenT.Id;
         }
 
-        public async Task<int> UpdateEventAsync(int id, Event evenT) {
+        public async Task<int> UpdateEventAsync(int id, Event sentEvent) {
 
             if (id <= 0) return 0;
 
@@ -40,11 +40,11 @@ namespace CTOS.Web.Services {
             if (existingEvent == null) return 0;
 
             // Update properties
-            existingEvent.EventId = evenT.EventId;
-            existingEvent.EventName = evenT.EventName;
-            existingEvent.Location = evenT.Location;
-            existingEvent.Priority = evenT.Priority;
-            existingEvent.Description = evenT.Description;
+            existingEvent.EventId = sentEvent.EventId;
+            existingEvent.EventName = sentEvent.EventName;
+            existingEvent.Location = sentEvent.Location;
+            existingEvent.Priority = sentEvent.Priority;
+            existingEvent.Description = sentEvent.Description;
 
             eventRepo.UpdateAsync(existingEvent);
             await eventRepo.SaveChangesAsync();
@@ -64,3 +64,10 @@ namespace CTOS.Web.Services {
     }
 
 }
+
+
+//
+//
+// --> (id == 3)  --> 
+//
+//

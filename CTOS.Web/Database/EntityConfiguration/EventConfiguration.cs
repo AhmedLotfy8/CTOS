@@ -1,5 +1,5 @@
 ﻿
-
+// : IEntityTypeConfiguration<Location>
 
 // Configurations -> set the attribute types and relationships for each table to be created
 // After each new change (related to database) ---> Add Migrations!
@@ -18,7 +18,7 @@ namespace CTOS.Web.Database.EntityConfiguration {
                 .HasMaxLength(64);
 
             builder.Property(x => x.EventName)
-                .HasMaxLength(256); // Event name has max size of 256 in database 
+                .HasMaxLength(64); // Event name has max size of 256 in database 
 
             builder.Property(x => x.Location)
                 .HasMaxLength(512);
@@ -44,5 +44,7 @@ namespace CTOS.Web.Database.EntityConfiguration {
             */
             #endregion
         }
+    
+    
     }
 }
